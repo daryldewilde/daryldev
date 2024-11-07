@@ -14,6 +14,7 @@ def portfolio_view(request):
     experiences = Experience.objects.all()
     return render(request, 'portfolio/portfolio.html', {
         "year":2024,
+        "name": "daryldev",
         'projects': projects,
         'skills': skills,
         'experiences': experiences,
