@@ -13,6 +13,7 @@ def portfolio_view(request):
     skills = Skill.objects.all()
     experiences = Experience.objects.all()
     return render(request, 'portfolio/portfolio.html', {
+        "year":2024,
         'projects': projects,
         'skills': skills,
         'experiences': experiences,
@@ -27,9 +28,10 @@ def render_pdf_view(request):
 
     # Define context with resume data
     context = {
-        "name": "Your Name",
-        "email": "your.email@example.com",
-        "phone": "+123456789",
+        "year":2024,
+        "name": "daryldev",
+        "email": "nfoyedewilde@gmail.com",
+        "phone": "+237 699255753",
         "skills": skills,
         "projects": projects,
         "experiences": experiences,
