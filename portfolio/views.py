@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Project, Skill, Experience
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import JsonResponse
 from xhtml2pdf import pisa
 import io
 from django.core.mail import send_mail
@@ -61,12 +60,15 @@ def contact_me_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         message = request.POST.get('message')
-        send_mail(
-            'Contact Form Message',
-            f'Email: {email}\n\nMessage:\n{message}',
-            settings.DEFAULT_FROM_EMAIL,
-            ['your_email@example.com'],
-            fail_silently=False,
-        )
-        return HttpResponse('Message sent successfully')
-    return HttpResponse('Invalid request', status=400)
+        try:
+            send_mail(
+                'Contact Form Message',
+                f'Email: {email}\n\nMessage:\n{message}',
+                settings.DEFAULT_FROM_EMAIL,
+                ['nfoyedewilde@gmail.com'],
+                fail_silently=False,
+            )
+            return JsonResponse({'success': True})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)})
+    return JsonResponse({'success': False, 'error': 'Invalid request'}, status=400)

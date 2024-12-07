@@ -9,6 +9,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .linkedin {
+            color: #0077b5; /* LinkedIn blue */
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -94,7 +99,7 @@
 
     <section id="contact" class="container my-5 section">
         <h2 class="text-center mb-4 section-title">Contact Me</h2>
-        <form action="{% url 'contact_me' %}" method="post">
+        <form id="contactForm" method="post">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
@@ -108,28 +113,70 @@
         </form>
     </section>
 
+    <!-- Modal for success or error message -->
+    <div class="modal fade" id="responseModal" tabindex="-1" aria-labelledby="responseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="responseModalLabel">Message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="responseMessage">
+                    <!-- Success or error message will be displayed here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-dark text-white text-center p-4 footer">
         <p>&copy; {{year}} {{name}}. All Rights Reserved.</p>
         <div class="social-links">
-            <a href="https://www.youtube.com/channel/yourchannel" target="_blank" class="mx-2 youtube">
-                <i class="fab fa-youtube"></i>
+            <a href="https://www.linkedin.com/in/nfoye-djomo-daryl-dewilde-0ba897311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="mx-2 linkedin">
+                <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://twitter.com/yourprofile" target="_blank" class="mx-2 twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com/yourprofile" target="_blank" class="mx-2 facebook">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/yourprofile" target="_blank" class="mx-2 instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://wa.me/yourwhatsappnumber" target="_blank" class="mx-2 whatsapp">
+            <a href="https://wa.me/699255753" target="_blank" class="mx-2 whatsapp">
                 <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://youtube.com/@daryldewilde?si=W-yMvtkDUBNg-mqr" target="_blank" class="mx-2 youtube">
+                <i class="fab fa-youtube"></i>
             </a>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch("{% url 'contact_me' %}", {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const responseModal = new bootstrap.Modal(document.getElementById('responseModal'));
+                const responseMessage = document.getElementById('responseMessage');
+                if (data.success) {
+                    responseMessage.textContent = 'Your message has been sent successfully!';
+                } else {
+                    responseMessage.textContent = 'There was an error sending your message. Please try again.';
+                }
+                responseModal.show();
+            })
+            .catch(error => {
+                const responseModal = new bootstrap.Modal(document.getElementById('responseModal'));
+                const responseMessage = document.getElementById('responseMessage');
+                responseMessage.textContent = 'There was an error sending your message. Please try again.';
+                responseModal.show();
+            });
+        });
+    </script>
 </body>
 </html>
