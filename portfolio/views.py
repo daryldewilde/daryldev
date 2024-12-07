@@ -5,8 +5,7 @@ from xhtml2pdf import pisa
 import io
 from django.core.mail import send_mail
 from django.conf import settings
-
-
+from django.views.generic import TemplateView
 
 
 def portfolio_view(request):
@@ -19,6 +18,7 @@ def portfolio_view(request):
         'projects': projects,
         'skills': skills,
         'experiences': experiences,
+        "is_pwa": True,
     })
 
 
@@ -37,6 +37,7 @@ def render_pdf_view(request):
         "skills": skills,
         "projects": projects,
         "experiences": experiences,
+        "is_pwa": True,
     }
 
     # Render HTML template with context data
@@ -72,3 +73,8 @@ def contact_me_view(request):
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)})
     return JsonResponse({'success': False, 'error': 'Invalid request'}, status=400)
+
+
+class ServiceWorkerView(TemplateView):
+    template_name = "portfolio/serviceworker.js"
+    content_type = "application/javascript"
