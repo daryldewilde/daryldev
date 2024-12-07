@@ -1,7 +1,8 @@
 from django.urls import path
-from . import views
+from .views import portfolio_view, render_pdf_view, contact_me_view
 
 urlpatterns = [
-    path('', views.portfolio_view, name='portfolio'),
-    path('download_resume/', views.render_pdf_view, name='download_resume'),
+    path('', portfolio_view, name='portfolio'),
+    path('download_resume/', render_pdf_view, name='download_resume'),
+    path('contact_me/', contact_me_view, name='contact_me'),
 ]

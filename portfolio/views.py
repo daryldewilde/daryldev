@@ -4,6 +4,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from xhtml2pdf import pisa
 import io
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 
@@ -53,3 +55,18 @@ def render_pdf_view(request):
         return HttpResponse('Error generating PDF', status=500)
     
     return response
+
+
+def contact_me_view(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        send_mail(
+            'Contact Form Message',
+            f'Email: {email}\n\nMessage:\n{message}',
+            settings.DEFAULT_FROM_EMAIL,
+            ['your_email@example.com'],
+            fail_silently=False,
+        )
+        return HttpResponse('Message sent successfully')
+    return HttpResponse('Invalid request', status=400)
