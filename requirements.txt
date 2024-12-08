@@ -1,3 +1,4 @@
 xhtml2pdf
 django
 django-pwa
+python-decouple
