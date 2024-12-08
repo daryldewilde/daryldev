@@ -75,6 +75,3 @@ def contact_me_view(request):
     return JsonResponse({'success': False, 'error': 'Invalid request'}, status=400)
 
 
-class ServiceWorkerView(TemplateView):
-    template_name = "portfolio/serviceworker.js"
-    content_type = "application/javascript"
