@@ -151,7 +151,28 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CSRF_TRUSTED_ORIGINS = [
    "https://daryldev.onrender.com",
-    "https://sub.example.com",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
 ]
+
+PWA_APP_NAME = 'DarylDev Portfolio'
+PWA_APP_DESCRIPTION = "DarylDev's Portfolio as a Progressive Web App"
+PWA_APP_THEME_COLOR = '#000000' #'#0A0302'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_START_URL = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/images//web-app-manifest-192x192.png',
+        'sizes': '192x192'
+    },
+    {
+        'src': '/static/images/web-app-manifest-512x512.png',
+        'sizes': '512x512'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'

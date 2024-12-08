@@ -1,0 +1,25 @@
+{% load pwa %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% progressive_web_app_meta %}  
+    <!-- ...existing code... -->
+    <link rel="manifest" href="{% static 'manifest.json' %}">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{% static 'serviceworker.js' %}')
+            .then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(error) {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+        }
+    </script>
+    <!-- ...existing code... -->
+</head>
+<body>
+    <!-- ...existing code... -->
+</body>
+</html>
