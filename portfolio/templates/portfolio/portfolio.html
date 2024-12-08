@@ -25,6 +25,7 @@
         }
         .header-buttons {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
@@ -33,6 +34,18 @@
             font-weight: 700;
             padding: 10px 20px;
             border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2rem;
+            }
+            .header-subtitle {
+                font-size: 1.2rem;
+            }
+            .header-buttons a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
         }
     </style>
     <meta name="theme-color" content="#ffffff">
@@ -183,7 +196,12 @@
                     'X-CSRFToken': formData.get('csrfmiddlewaretoken')
                 }
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 const responseModal = new bootstrap.Modal(document.getElementById('responseModal'));
                 const responseMessage = document.getElementById('responseMessage');
@@ -201,8 +219,6 @@
                 responseModal.show();
             });
         });
-
-      
     </script>
 </body>
 </html>
