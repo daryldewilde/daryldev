@@ -189,11 +189,12 @@
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const formData = new FormData(this);
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
             fetch("{% url 'contact_me' %}", {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+                    'X-CSRFToken': csrfToken
                 }
             })
             .then(response => {
