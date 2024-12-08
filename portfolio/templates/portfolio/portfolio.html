@@ -14,7 +14,6 @@
             color: #0077b5; /* LinkedIn blue */
         }
     </style>
-    <link rel="manifest" href="{% static 'portfolio/manifest.json' %}">
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
@@ -180,14 +179,7 @@
             });
         });
 
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/serviceworker.js')
-            .then(function(registration) {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }).catch(function(error) {
-                console.log('ServiceWorker registration failed: ', error);
-            });
-        }
+      
     </script>
 </body>
 </html>
