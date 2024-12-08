@@ -141,17 +141,11 @@ header a {
     color: #FF0000;
 }
 
-.footer .social-links a.twitter {
-    color: #1DA1F2;
-}
-
-.footer .social-links a.facebook {
+.footer .social-links a.linkedin {
     color: #1877F2;
 }
 
-.footer .social-links a.instagram {
-    color: #E1306C;
-}
+
 
 .footer .social-links a.whatsapp {
     color: #25D366;
