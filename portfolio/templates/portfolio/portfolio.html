@@ -13,6 +13,27 @@
         .linkedin {
             color: #0077b5; /* LinkedIn blue */
         }
+        .header-title {
+            font-weight: 900;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            font-size: 3rem;
+        }
+        .header-subtitle {
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            font-size: 1.5rem;
+        }
+        .header-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .header-buttons a {
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
     </style>
     <meta name="theme-color" content="#ffffff">
 </head>
@@ -41,12 +62,14 @@
             </div>
         </div>
     </nav>
-    <header class="bg-dark text-white text-center p-5">
-        <h1 class="display-4 animate__animated animate__fadeInDown">Welcome to Daryl's Portfolio</h1>
-        <p class="lead">Software Engineer | Web Developer</p>
-        <a href="{% static 'cv/resume.pdf' %}" class="btn btn-outline-light btn-lg mt-3" download>Download Resume</a>
-        <a href="{% url 'download_resume' %}" class="btn btn-outline-light btn-lg mt-3">Download Portfolio as PDF</a>
-        <a href="#contact" class="btn btn-primary btn-lg mt-3">Hire Me</a>
+    <header class="bg-dark text-white text-center p-5" style="background-image: url('{% static 'images/brand.png' %}'); background-size: cover; background-position: center;">
+        <h1 class="display-4 animate__animated animate__fadeInDown header-title">Welcome to Daryl's Portfolio</h1>
+        <p class="lead header-subtitle">Software Engineer | Web Developer</p>
+        <div class="header-buttons">
+            <a href="{% static 'cv/resume.pdf' %}" class="btn btn-outline-light btn-lg" download>Download Resume</a>
+            <a href="{% url 'download_resume' %}" class="btn btn-outline-light btn-lg">Download Portfolio as PDF</a>
+            <a href="#contact" class="btn btn-primary btn-lg">Hire Me</a>
+        </div>
     </header>
 
     <section id="skills" class="container my-5 section">
