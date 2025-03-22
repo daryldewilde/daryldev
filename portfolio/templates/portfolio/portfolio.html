@@ -93,8 +93,8 @@
         <h1 class="display-4 animate__animated animate__fadeInDown header-title">Welcome to Daryl's Portfolio</h1>
         <p class="lead header-subtitle">Software Engineer | Web Developer</p>
         <div class="header-buttons">
-            <a href="{% static 'cv/resume.pdf' %}" class="btn btn-outline-light btn-lg" download>Download Resume</a>
-            <a href="{% url 'download_resume' %}" class="btn btn-outline-light btn-lg">Download Portfolio as PDF</a>
+            <a href="{% static 'cv/resume.pdf' %}" class="btn btn-outline-light btn-lg" download>Download CV/Resume</a>
+           {% comment "button to download  the Portfolio as Pdf" %} <a href="{% url 'download_resume' %}" class="btn btn-outline-light btn-lg">Download Portfolio as PDF</a>{% endcomment %}
             <a href="#contact" class="btn btn-primary btn-lg">Hire Me</a>
         </div>
     </header>
@@ -193,6 +193,9 @@
             </a>
             <a href="https://youtube.com/@daryldewilde?si=W-yMvtkDUBNg-mqr" target="_blank" class="mx-2 youtube">
                 <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://github.com/daryldewilde" target="_blank" class="mx-2 github">
+                <i class="fab fa-github"></i>
             </a>
         </div>
     </footer>
