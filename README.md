@@ -4,11 +4,12 @@ DarylDev Portfolio is a personal portfolio website built with Django. It showcas
 
 ## Features
 
-- **Dynamic Portfolio**: Displays projects, skills, and experiences dynamically from the database.
+- **Dynamic Portfolio**: Displays projects, skills, experiences, and certificates dynamically from the database.
 - **Contact Form**: Allows visitors to send messages directly to the owner.
 - **Downloadable Resume**: Generates a PDF version of the portfolio for download.
 - **Progressive Web App (PWA)**: Installable and offline-capable.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Certificates Section**: Showcases certificates with images and titles.
 
 ## Technologies Used
 
@@ -69,6 +70,10 @@ DarylDev Portfolio is a personal portfolio website built with Django. It showcas
    ```
 
 8. Access the application at `http://127.0.0.1:8000`.
+
+9. Add certificates via the admin interface:
+   - Navigate to `/admin`.
+   - Add certificates with titles and images under the `Certificate` section.
 
 ### Docker Setup
 

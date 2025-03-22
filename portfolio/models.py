@@ -15,3 +15,7 @@ class Experience(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
     description = models.TextField()
+
+class Certificate(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='certif/')

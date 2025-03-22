@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Project, Skill, Experience
+from .models import Project, Skill, Experience, Certificate
 from django.http import JsonResponse
 from xhtml2pdf import pisa
 import io
@@ -11,13 +11,15 @@ from django.views.generic import TemplateView
 def portfolio_view(request):
     projects = Project.objects.all()
     skills = Skill.objects.all()
-    experiences = Experience.objects.all()
+    experiences = Experience.objects.order_by('-start_date')  # Order by start_date descending
+    certificates = Certificate.objects.all()
     return render(request, 'portfolio/portfolio.html', {
-        "year":2024,
+        "year": 2024,
         "name": "daryldev",
         'projects': projects,
         'skills': skills,
         'experiences': experiences,
+        'certificates': certificates,
         "is_pwa": True,
     })
 

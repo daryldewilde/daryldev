@@ -85,6 +85,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certificates">Certificates</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -148,6 +151,24 @@
         {% endfor %}
     </section>
 
+    <section id="certificates" class="container my-5 section">
+        <h2 class="text-center mb-4 section-title">Certificates</h2>
+        <div class="row">
+            {% for certificate in certificates %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <a href="{{ certificate.image.url }}" target="_blank">
+                        <img src="{{ certificate.image.url }}" class="card-img-top" alt="{{ certificate.title }}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ certificate.title }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
     <section id="contact" class="container my-5 section">
         <h2 class="text-center mb-4 section-title">Contact Me</h2>
         <form id="contactForm" method="post">
@@ -162,6 +183,23 @@
             </div>
             <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
+        <div class="text-center mt-4">
+            <h5>Connect with me:</h5>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/nfoye-djomo-daryl-dewilde-0ba897311?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="mx-2 linkedin">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+                <a href="https://wa.me/699255753" target="_blank" class="mx-2 whatsapp">
+                    <i class="fab fa-whatsapp fa-2x"></i>
+                </a>
+                <a href="https://youtube.com/@daryldewilde?si=W-yMvtkDUBNg-mqr" target="_blank" class="mx-2 youtube">
+                    <i class="fab fa-youtube fa-2x"></i>
+                </a>
+                <a href="https://github.com/daryldewilde" target="_blank" class="mx-2 github">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+            </div>
+        </div>
     </section>
 
     <!-- Modal for success or error message -->

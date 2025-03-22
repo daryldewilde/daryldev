@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, Skill, Experience
+from .models import Project, Skill, Experience, Certificate
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -18,3 +18,8 @@ class ExperienceAdmin(admin.ModelAdmin):
     list_display = ('role', 'company', 'start_date', 'end_date')
     search_fields = ('role', 'company')
     list_filter = ('start_date', 'end_date', 'company')  # Add filtering by company
+
+@admin.register(Certificate)
+class CertificateAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    search_fields = ('title',)

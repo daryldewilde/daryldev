@@ -145,8 +145,6 @@ header a {
     color: #1877F2;
 }
 
-
-
 .footer .social-links a.whatsapp {
     color: #25D366;
 }
@@ -154,4 +152,29 @@ header a {
 .footer p {
     margin: 0;
     font-size: 1rem;
+}
+
+.social-links a {
+    margin: 0 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a.linkedin {
+    color: #0077b5; /* LinkedIn blue */
+}
+
+.social-links a.whatsapp {
+    color: #25D366; /* WhatsApp green */
+}
+
+.social-links a.youtube {
+    color: #FF0000; /* YouTube red */
+}
+
+.social-links a.github {
+    color: #333; /* GitHub black */
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
 }

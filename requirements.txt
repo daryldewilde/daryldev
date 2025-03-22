@@ -3,3 +3,4 @@ django
 django-pwa
 python-decouple
 django-cors-headers
+Pillow
