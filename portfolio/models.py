@@ -3,7 +3,9 @@ from django.db import models
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    link = models.URLField(blank=True, null=True)  # Link to project, if any
+    link = models.URLField(blank=True, null=True) 
+    repo_link = models.URLField(blank=True, null=True) 
+
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)

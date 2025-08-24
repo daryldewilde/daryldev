@@ -1,13 +1,11 @@
 # DarylDev Portfolio
 
-DarylDev Portfolio is a personal portfolio website built with Django. It showcases projects, skills, and experiences, and includes features like a contact form, downloadable resume, and Progressive Web App (PWA) support.
+DarylDev Portfolio is a personal portfolio website built with Django. It showcases projects, skills, and experiences, and includes features like a contact form, downloadable resume.
 
 ## Features
 
 - **Dynamic Portfolio**: Displays projects, skills, experiences, and certificates dynamically from the database.
 - **Contact Form**: Allows visitors to send messages directly to the owner.
-- **Downloadable Resume**: Generates a PDF version of the portfolio for download.
-- **Progressive Web App (PWA)**: Installable and offline-capable.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
 - **Certificates Section**: Showcases certificates with images and titles.
 
@@ -15,8 +13,6 @@ DarylDev Portfolio is a personal portfolio website built with Django. It showcas
 
 - **Backend**: Django
 - **Frontend**: HTML, CSS, Bootstrap
-- **PDF Generation**: xhtml2pdf
-- **PWA**: django-pwa
 - **Email**: Django Email Backend with Gmail SMTP
 
 ## Setup Instructions
@@ -91,15 +87,6 @@ DarylDev Portfolio is a personal portfolio website built with Django. It showcas
 - **Download Resume**: Click the "Download Resume" button on the homepage.
 - **Contact Form**: Submit messages via the contact form.
 
-## Testing
-
-To run tests, use the following command:
-```bash
-python manage.py test
-```
-
-Ensure that all tests pass before deploying changes.
-
 ## Deployment
 
 To deploy the application, configure a production-ready server (e.g., Gunicorn with Nginx) and set `DEBUG=False` in the `.env` file. Ensure the `ALLOWED_HOSTS` setting includes your domain.
@@ -127,16 +114,6 @@ Contributions are welcome! To contribute:
 
 - **Bootstrap**: For responsive design components.
 - **Font Awesome**: For icons.
-- **xhtml2pdf**: For PDF generation.
-- **Django PWA**: For Progressive Web App support.
-
-## Screenshots
-
-### Home Page
-![Home Page](https://via.placeholder.com/800x400)
-
-### Skills Section
-![Skills Section](https://via.placeholder.com/800x400)
 
 ## License
 

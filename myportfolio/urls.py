@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('portfolio.urls')),
-    path('pwa/', include('pwa.urls')),  # Include PWA URLs
 ]
 
 if settings.DEBUG:

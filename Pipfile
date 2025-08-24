@@ -4,9 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-xhtml2pdf = "*"
 django = "*"
-django-pwa = "*"
 python-decouple = "*"
 django-cors-headers = "*"
 
