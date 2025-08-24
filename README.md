@@ -124,4 +124,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 For any inquiries, please contact:
 - **Email**: nfoyedewilde@gmail.com
 - **LinkedIn**: [Daryl Dewilde](https://www.linkedin.com/in/nfoye-djomo-daryl-dewilde-0ba897311)
-- **Portfolio**: [DarylDev Portfolio](https://daryldev.onrender.com)
+- **Portfolio**: [DarylDev Portfolio](https://daryldev.koyeb.app/)

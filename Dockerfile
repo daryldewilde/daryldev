@@ -16,12 +16,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the Django project files
 COPY . /app/
 
-# Run migrations 
-RUN python manage.py makemigrations
-RUN python manage.py migrate
-
-RUN python manage.py createsuperuser
-
 # Expose the port the app runs on
 EXPOSE 8000
 
