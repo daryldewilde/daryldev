@@ -73,12 +73,41 @@ DarylDev Portfolio is a personal portfolio website built with Django. It showcas
 
 ### Docker Setup
 
-1. Build and run the Docker container:
+1. Build and run the containers (recommended detached mode):
    ```bash
-   docker-compose up --build
+   docker-compose up --build -d
    ```
 
-2. Access the application at `http://127.0.0.1:8000`.
+2. Apply database migrations inside the running container:
+   ```bash
+   docker-compose exec web python manage.py migrate
+   ```
+
+3. Create a superuser (interactive):
+   ```bash
+   docker-compose exec web python manage.py createsuperuser
+   ```
+
+4. Collect static files (if you have static assets to serve):
+   ```bash
+   docker-compose exec web python manage.py collectstatic --noinput
+   ```
+
+5. View logs or attach to the web service:
+   ```bash
+   docker-compose logs -f web
+   docker-compose exec web python manage.py shell
+   ```
+
+6. Stop and remove containers, networks and default volumes:
+   ```bash
+   docker-compose down
+   ```
+
+Notes:
+- The project uses the local `db.sqlite3` file which is mounted into the container by the compose volume, so data persists on the host filesystem.
+- If you change dependencies or Dockerfile content, rebuild the image: `docker-compose up --build -d`.
+- The app is available at `http://localhost:8000` after the web service starts.
 
 ## Usage
 

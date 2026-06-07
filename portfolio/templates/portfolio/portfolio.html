@@ -270,6 +270,7 @@
             .then(data => {
                 const responseModal = new bootstrap.Modal(document.getElementById("responseModal"));
                 const responseMessage = document.getElementById("responseMessage");
+                console.log("Response from server:", data);
                 responseMessage.textContent = data.success
                     ? "Your message has been sent successfully!"
                     : "There was an error sending your message. Please try again.";
