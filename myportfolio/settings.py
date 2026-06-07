@@ -68,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'portfolio.context_processors.social_links',
             ],
         },
     },
@@ -157,3 +158,11 @@ CSRF_TRUSTED_ORIGINS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Social links configurable via environment (.env)
+SOCIAL_LINKS = {
+    'linkedin': config('SOCIAL_LINKEDIN', default='https://www.linkedin.com/'),
+    'whatsapp': config('SOCIAL_WHATSAPP', default='https://wa.me/'),
+    'youtube': config('SOCIAL_YOUTUBE', default='https://youtube.com/'),
+    'github': config('SOCIAL_GITHUB', default='https://github.com/'),
+}

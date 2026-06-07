@@ -47,6 +47,16 @@ DarylDev Portfolio is a personal portfolio website built with Django. It showcas
    SECRET_KEY=your-secret-key
    EMAIL_HOST_USER=your-email@gmail.com
    EMAIL_HOST_PASSWORD=your-email-password
+   # Optional social links
+   SOCIAL_LINKEDIN=https://www.linkedin.com/in/your-profile
+   SOCIAL_WHATSAPP=https://wa.me/1234567890
+   SOCIAL_YOUTUBE=https://youtube.com/@yourchannel
+   SOCIAL_GITHUB=https://github.com/yourusername
+   ```
+
+   A `.env.example` file is included as a template. The project uses `python-decouple` (`decouple.config`) to load env vars; install it with:
+   ```bash
+   pip install python-decouple
    ```
 
 5. Apply migrations:
@@ -108,6 +118,8 @@ Notes:
 - The project uses the local `db.sqlite3` file which is mounted into the container by the compose volume, so data persists on the host filesystem.
 - If you change dependencies or Dockerfile content, rebuild the image: `docker-compose up --build -d`.
 - The app is available at `http://localhost:8000` after the web service starts.
+
+Note: `.env` is included in `.gitignore` by default — do not commit your real `.env` to source control.
 
 ## Usage
 
